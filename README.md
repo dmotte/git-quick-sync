@@ -13,7 +13,7 @@ Simple *Bash* script that performs the following *Git* operations in sequence:
 git quick-sync [-m message]
 ```
 
-Note that, for it to be found by Git, you need to install it in a directory in your `$PATH`.
+Note that, for it to be found by Git, you need to install it in a directory in your `$PATH` (see [below](#installation)).
 
 ## Installation
 
