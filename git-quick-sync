@@ -1,0 +1,54 @@
+#!/bin/bash
+
+set -e
+
+message="$(date)"
+
+show_help() {
+    echo "Usage:"
+    echo "    $0 [-m message]"
+    echo "    $0 -h|--help"
+    echo "Examples:"
+    echo "    $0"
+    echo "    $0 --message=\"Hello world!\""
+    echo "    $0 -m \"Hello world!\""
+    echo "    $0 -m=thisismymessage"
+}
+
+# Parse the argument list
+while [[ $# -gt 0 ]]; do
+    key="$1"
+
+    case "$key" in
+        -m|--message) # This is an "--arg value"-like option
+            shift # past the key to get the value
+            message="$1"
+            ;;
+        -m=*|--message=*) # This is an "--arg=value"-like option
+            # No need to shift here since the value is part of the same string
+            message="${key#*=}"
+            ;;
+        -h|--help) # This is an "--arg"-like option
+            show_help
+            exit 0
+            ;;
+        *)
+            echo "Unknown option \"$key\""
+            show_help
+            exit 1
+            ;;
+    esac
+
+    shift # to get the next option
+done
+
+# Pull without letting the user edit any merge commit message
+echo "1: Pull from the remote"
+git pull --no-edit
+
+echo "2: Add any changes to stage"
+git add .
+echo "3: Make a commit if needed"
+git commit -m "$message" || true
+echo "4: Push to the remote"
+git push
