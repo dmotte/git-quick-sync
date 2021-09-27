@@ -2,8 +2,6 @@
 
 set -e
 
-message="$(date)"
-
 show_help() {
     echo "Usage:"
     echo "    $0 [-m message]"
@@ -14,6 +12,8 @@ show_help() {
     echo "    $0 -m \"Hello world!\""
     echo "    $0 -m=thisismymessage"
 }
+
+message="$(date)"
 
 # Parse the argument list
 while [[ $# -gt 0 ]]; do
