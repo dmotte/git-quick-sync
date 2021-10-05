@@ -10,8 +10,10 @@ Simple *Bash* script that performs the following *Git* operations in sequence:
 ## Usage
 
 ```bash
-git quick-sync [-m message]
+git quick-sync [-m message] [-p]
 ```
+
+See `git quick-sync --help` for more information.
 
 Note that, for it to be found by Git, you need to install it in a directory in your `$PATH` (see [below](#installation)).
 
