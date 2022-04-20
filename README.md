@@ -1,6 +1,6 @@
 # git-quick-sync
 
-Simple *Bash* script that performs the following *Git* operations in sequence:
+Simple _Bash_ script that performs the following _Git_ operations in sequence:
 
 1. **Pull** the current branch from the remote
 2. **Add** any changes to stage (relative to the working directory)
@@ -19,7 +19,7 @@ Note that, for it to be found by Git, you need to install it in a directory in y
 
 ## Installation
 
-To install or update *git-quick-sync* you just have to execute the following commands as root:
+To install or update _git-quick-sync_ you just have to execute the following commands as root:
 
 ```bash
 curl -Lo "/usr/local/bin/git-quick-sync" \
