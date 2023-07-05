@@ -20,10 +20,10 @@ show_help() {
 message="$(date)"
 
 # Parse the argument list
-while [[ $# -gt 0 ]]; do
+while [ $# -gt 0 ]; do
     case "$1" in
         -m|--message) # This is an "--arg value"-like option
-            shift # past the key to get the value
+            shift # Past the key to get the value
             message="$1"
             ;;
         -m=*|--message=*) # This is an "--arg=value"-like option
@@ -51,8 +51,7 @@ done
 echo "1: Pull from the remote"
 git pull --no-edit
 
-# If pull_only is true, exit immediately
-[[ "$pull_only" == "true" ]] && exit 0
+[ "$pull_only" = "true" ] && exit 0
 
 echo "2: Add any changes to stage"
 git add .
